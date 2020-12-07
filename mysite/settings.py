@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'personal',
     'account',
     'company',
+    'ml',
     
     'django.contrib.admin',
     'django.contrib.auth',
