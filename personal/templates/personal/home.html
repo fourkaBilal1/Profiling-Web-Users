@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Never Lose Hope</h1>
+  <p class="lead">“I feel like giving it up several times in my life. But then something in me stops me from giving it up. I have not given up the struggle. Don't give up on yourself. Be proud of your struggles.” <br> ― Avijeet Das</p>
+</div>
+<hr> -->
+
+<!-- <div class="container">
+  <div class="row">
+  	{% for image in images %}
+	
+	<div class="col-sm-12 col-md-4">
+		<a href="#">
+			<img
+			class="img-fluid img-center"
+			src="{% static image %}"
+			/>
+		</a>
+	</div>
+    {% endfor %}
+	
+
+  </div>
+</div> -->
+
+
+<div class="container">
+  <div class="row">
+  	{% for company in list %}
+	
+	<div class="col-sm-12 col-md-4">
+		<a href="{% url 'click' company.user_id company.id company.ad_id  %}">
+			<img
+			class="img-fluid img-center"
+			src="{% static company.image %}"
+			/>
+
+		</a>
+		<p>{{company.user_id}}  | {{company.id}} {{company.name}} | {{company.ad_id}}</p>
+	</div>
+    {% endfor %}
+	
+
+  </div>
+</div>
+
+<ul>
+
+{% for company in companies %}
+	<li>{{company}}</li>
+{% endfor %}
+</ul>
+
+
+{% endblock content %}
+
+
+
+
+
+
+
