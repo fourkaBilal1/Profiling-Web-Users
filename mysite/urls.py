@@ -19,9 +19,14 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
 
+from django.conf.urls import url, include
+from django.urls import path
+from apps.endpoints.urls import urlpatterns as endpoints_urlpatterns
+
 
 from personal.views import (
 	home_screen_view,
+    search_view
 )
 
 from account.views import (
@@ -39,6 +44,7 @@ urlpatterns = [
     path('logout/',logout_view,name="logout"),
     path('login/',login_view,name="login"),
     path('account/',account_view,name="account"),
+    path('search/',search_view,name="search"),
     path('<int:user_id>/<int:company_id>/<int:ad_id>',click_view,name="click"),
 
     # Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)
@@ -59,6 +65,9 @@ urlpatterns = [
      name='password_reset_complete'),
 ]
 
+urlpatterns += endpoints_urlpatterns
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

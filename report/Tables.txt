@@ -1,0 +1,52 @@
+Table Account {
+ 	id int
+ 	email varchar
+	username varchar
+	birthDate timestamp
+	city varchar
+	country varchar
+	postcode varchar
+	streetName varchar
+	streetNumber varchar
+	date_joined varchar
+	last_login timestamp
+	is_admin Boolean
+	is_staff Boolean
+	is_superuser Boolean
+	is_active Boolean
+  
+}
+Table Company {
+  id int 
+	name varchar
+	category varchar
+}
+
+Table Ad {
+  id int
+	Company int
+	ad_path varchar
+}
+
+
+Table Click {
+  id int
+	user_id int
+	company_id int
+	ad_id int
+	date_click timestamp
+}
+
+
+Table Search_input {
+  id int
+	user_id int
+	Text varchar
+	date_search timestamp
+}
+
+Ref: Company.id > Ad.Company
+Ref: Account.id > Click.user_id
+Ref: Company.id > Click.company_id
+Ref: Ad.id > Click.ad_id
+Ref: Account.id > Search_input.user_id

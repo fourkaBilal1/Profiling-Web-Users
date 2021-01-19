@@ -15,6 +15,16 @@ from django.db import models
 # 		verbose_name = "The Question"
 # 		verbose_name_plural = "Peoples Questions"
 
+class Search_input(models.Model):
+	user_id 			= models.IntegerField()
+	Text				= models.CharField(max_length=200)
+	date_search			= models.DateTimeField(verbose_name="date_search",auto_now_add=True)
+
+	def __str__(self):
+		return "{} | {}".format(self.user_id,self.Text)
+	class Meta:
+	    verbose_name_plural = "Search_inputs"
+
 
 
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from account.models import Account
 from company.models import Company,Ad
+from personal.models import Search_input
 import random
 
 
@@ -31,6 +32,18 @@ def home_screen_view(request):
 		return render(request, "personal/home.html",context)
 	else:
 		return redirect("login")
-	
+
+def search_view(request):
+	context = {}
+	print("search view")
+	print(request.GET.get('search_text'))
+	searched_text = request.GET.get('search_text')
+	S = Search_input()
+	S.user_id= request.user.id
+	S.Text= searched_text
+	S.save()
+	context["searched_text"] = searched_text
+
+	return render(request, "personal/search.html",context)
 	
 

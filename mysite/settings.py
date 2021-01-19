@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'personal',
     'account',
     'company',
-    'ml',
+    'rest_framework', # add django rest framework
+    # apps
+    'apps.endpoints',
+    'apps.ml',
+
     
     'django.contrib.admin',
     'django.contrib.auth',
