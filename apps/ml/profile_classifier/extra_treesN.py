@@ -24,13 +24,11 @@ class ExtraTreesClassifierN:
         return input_data
 
     def predict(self, input_data):
-        return self.model.predict_proba(input_data)
+        return self.model.predict(input_data)
 
     def postprocessing(self, input_data):
-        label = "<=50K"
-        if input_data[1] > 0.5:
-            label = ">50K"
-        return {"probability": input_data[1], "label": label, "status": "OK"}
+        label = input_data
+        return {"probability": None, "label": label, "status": "OK"}
 
     def compute_prediction(self, input_data):
         try:

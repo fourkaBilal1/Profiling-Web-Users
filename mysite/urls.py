@@ -34,6 +34,7 @@ from account.views import (
     logout_view,
     login_view,
     account_view,
+    plot_view
     )
 from company.views import (getSixAds_view,click_view)
 
@@ -46,6 +47,7 @@ urlpatterns = [
     path('account/',account_view,name="account"),
     path('search/',search_view,name="search"),
     path('<int:user_id>/<int:company_id>/<int:ad_id>',click_view,name="click"),
+    path('plot/',plot_view,name="plot"),
 
     # Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'), 

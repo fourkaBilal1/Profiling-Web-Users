@@ -2,6 +2,13 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import login , authenticate , logout
 from account.forms import RegistrationForm,AccountAuthenticationForm,AccountUpdateForm
 
+import numpy as np
+import plotly.graph_objs as go
+from plotly.offline import plot
+
+
+
+
 
 def registration_view(request):
 	context = {}
@@ -72,3 +79,35 @@ def account_view(request):
 			)
 	context['account_form'] = form
 	return render(request, 'account/account.html', context)
+
+
+def plot_view(request):
+	context = {}
+
+
+	x_data = np.arange(0, 120, 0.1)
+	trace1 = go.Scatter(
+		x=x_data,
+		y=np.sin(x_data)
+	)
+
+	data = [trace1]
+	layout = go.Layout(
+		# autosize=False,
+		# width=900,
+		# height=500,
+
+		xaxis=dict(
+			autorange=True
+		),
+		yaxis=dict(
+			autorange=True
+		)
+	)
+	fig = go.Figure(data=data, layout=layout)
+	plot_div = plot(fig, output_type='div', include_plotlyjs=False)
+
+
+
+	context['plot'] = plot_div 
+	return render(request, 'account/plot.html', context)

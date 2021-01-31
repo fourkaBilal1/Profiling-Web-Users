@@ -33,14 +33,14 @@
   	{% for company in list %}
 	
 	<div class="col-sm-12 col-md-4">
-		<a href="{% url 'click' company.user_id company.id company.ad_id  %}">
+		<a href="{% url 'click' user_id company.Company.id company.id  %}">
 			<img
 			class="img-fluid img-center"
-			src="{% static company.image %}"
+			src="{% static company.ad_path %}"
 			/>
 
 		</a>
-		<p>{{company.user_id}}  | {{company.id}} {{company.name}} | {{company.ad_id}}</p>
+		<p>{{user_id}}  | {{company.Company.id}} {{company.Company.name}} | {{company.id}}</p>
 	</div>
     {% endfor %}
 	

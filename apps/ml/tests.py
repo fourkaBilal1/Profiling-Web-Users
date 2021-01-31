@@ -1,5 +1,4 @@
 from django.test import TestCase
-
 from apps.ml.profile_classifier.random_forestN import RandomForestClassifierN
 
 # add at the beginning of the file:
@@ -82,44 +81,44 @@ class MLTests(TestCase):
 
     def test_et_algorithm(self):
         input_data = {
-            'postcode': '54000', 
-            'Text': 'five', 
-            'latitude': 48.69127075918047, 
-            'longitude': 6.1810051232421745, 
-            'date_click_year': 2020, 
-            'date_click_month': 11, 
-            'date_click_week': 47, 
-            'date_click_day': 17, 
-            'date_click_hour': 15, 
-            'date_click_minute': 45, 
-            'date_click_dayofweek': 1, 
-            'date_joined_year': 2020, 
-            'date_joined_month': 11, 
-            'date_joined_week': 46, 
-            'date_joined_day': 14, 
-            'date_joined_hour': 16, 
-            'date_joined_minute': 42, 
-            'date_joined_dayofweek': 5, 
-            'last_login_year': 2021, 
-            'last_login_month': 1, 
-            'last_login_week': 53, 
-            'last_login_day': 2, 
-            'last_login_hour': 20, 
-            'last_login_minute': 23, 
-            'last_login_dayofweek': 5, 
-            'birthDate_year': 2020, 
-            'birthDate_month': 12, 
-            'birthDate_week': 50, 
-            'birthDate_day': 7, 
-            'birthDate_hour': 18, 
-            'birthDate_minute': 53, 
-            'birthDate_dayofweek': 0, 
-            'date_search_year': 2021, 
-            'date_search_month': 1, 
-            'date_search_week': 2, 
-            'date_search_day': 13, 
-            'date_search_hour': 15, 
-            'date_search_minute': 12, 
+            'postcode': '54000',
+            'Text': 'five',
+            'latitude': 48.69127075918047,
+            'longitude': 6.1810051232421745,
+            'date_click_year': 2020,
+            'date_click_month': 11,
+            'date_click_week': 47,
+            'date_click_day': 17,
+            'date_click_hour': 15,
+            'date_click_minute': 45,
+            'date_click_dayofweek': 1,
+            'date_joined_year': 2020,
+            'date_joined_month': 11,
+            'date_joined_week': 46,
+            'date_joined_day': 14,
+            'date_joined_hour': 16,
+            'date_joined_minute': 42,
+            'date_joined_dayofweek': 5,
+            'last_login_year': 2021,
+            'last_login_month': 1,
+            'last_login_week': 53,
+            'last_login_day': 2,
+            'last_login_hour': 20,
+            'last_login_minute': 23,
+            'last_login_dayofweek': 5,
+            'birthDate_year': 2020,
+            'birthDate_month': 12,
+            'birthDate_week': 50,
+            'birthDate_day': 7,
+            'birthDate_hour': 18,
+            'birthDate_minute': 53,
+            'birthDate_dayofweek': 0,
+            'date_search_year': 2021,
+            'date_search_month': 1,
+            'date_search_week': 2,
+            'date_search_day': 13,
+            'date_search_hour': 15,
+            'date_search_minute': 12,
             'date_search_dayofweek': 2
         }
         my_alg = ExtraTreesClassifierN()
@@ -127,7 +126,7 @@ class MLTests(TestCase):
         self.assertEqual('OK', response['status'])
         self.assertTrue('label' in response)
         self.assertEqual('<=50K', response['label'])
-        
+
 # class EndpointTests(TestCase):
 
 #     def test_predict_view(self):
